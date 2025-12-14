@@ -1,0 +1,1098 @@
+<!doctype html>
+<html lang="sw">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Seven Mgimba — IT Student & Cybersecurity Enthusiast</title>
+  <meta name="description" content="Seven Mgimba — IT Student at Catholic University of Mbeya. Specialist in Software Development & Cybersecurity. Contact: mgimbasamuel@gmail.com" />
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#0f1720;
+      --muted:#9aa6b2;
+      --accent:#7c4dff;
+      --accent-2:#00d1ff;
+      --accent-3:#ff6b6b;
+      --accent-4:#ffd93d;
+      --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(255,255,255,0.02);
+      --success:#2ecc71;
+      --danger:#ff6b6b;
+      --radius:14px;
+      --max-w:1100px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    
+    /* --- KEYFRAME ANIMATIONS --- */
+    @keyframes cyberGlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    @keyframes pulse {
+      0% { 
+        box-shadow: 0 10px 40px rgba(124,77,255,0.4), 0 0 0 3px rgba(124,77,255,0.5), inset 0 0 20px rgba(124,77,255,0.15);
+        transform: scale(1);
+      }
+      50% { 
+        box-shadow: 0 15px 50px rgba(0,209,255,0.6), 0 0 0 5px rgba(0,209,255,0.7), inset 0 0 30px rgba(0,209,255,0.25);
+        transform: scale(1.02);
+      }
+      100% { 
+        box-shadow: 0 10px 40px rgba(124,77,255,0.4), 0 0 0 3px rgba(124,77,255,0.5), inset 0 0 20px rgba(124,77,255,0.15);
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeInSlideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes chipIn {
+        from { opacity: 0; transform: scale(0.7) rotate(-5deg); }
+        to { opacity: 1; transform: scale(1) rotate(0deg); }
+    }
+
+    @keyframes goalCardIn {
+        from { opacity: 0; transform: translateX(-30px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+
+    @keyframes glow {
+      0%, 100% { text-shadow: 0 0 10px rgba(124,77,255,0.5), 0 0 20px rgba(124,77,255,0.3); }
+      50% { text-shadow: 0 0 20px rgba(0,209,255,0.8), 0 0 30px rgba(0,209,255,0.5); }
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -1000px 0; }
+      100% { background-position: 1000px 0; }
+    }
+
+    @keyframes borderFlow {
+      0%, 100% { border-color: var(--accent); }
+      25% { border-color: var(--accent-2); }
+      50% { border-color: var(--accent-3); }
+      75% { border-color: var(--accent-4); }
+    }
+
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(-45deg, #07111a, #0b0f14, #120a23, #0b1a23, #1a0a23);
+      background-size: 400% 400%;
+      animation: cyberGlow 20s ease infinite; 
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px 20px 0 20px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:24px;
+      min-height:100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Floating particles background effect */
+    body::before {
+      content: '';
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(124,77,255,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(0,209,255,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255,107,107,0.1) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+      animation: float 15s ease-in-out infinite;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--max-w);
+      display:grid;
+      grid-template-columns: 360px 1fr;
+      gap:28px;
+      align-items:start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .sidebar{
+      background:linear-gradient(180deg,rgba(15,23,32,0.95), rgba(15,23,32,0.85));
+      backdrop-filter: blur(10px);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow: 0 8px 32px rgba(2,6,23,0.8), inset 0 1px 0 rgba(255,255,255,0.05);
+      position:sticky;
+      top:32px;
+      height:fit-content;
+      border: 2px solid transparent;
+      animation: fadeInSlideUp 0.8s ease-out, borderFlow 8s linear infinite;
+    }
+
+    .avatar{
+      width:100%;
+      display:flex;
+      gap:14px;
+      align-items:center;
+      flex-direction: column;
+      text-align: center;
+    }
+    .avatar .photo{
+      width:110px;
+      height:110px;
+      border-radius:20px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg, rgba(124,77,255,0.2), rgba(0,209,255,0.2));
+      box-shadow: 
+        0 10px 40px rgba(124,77,255,0.4),
+        0 0 0 3px rgba(124,77,255,0.5),
+        inset 0 0 20px rgba(124,77,255,0.15);
+      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      cursor: pointer;
+      animation: pulse 5s infinite ease-in-out;
+    }
+    .avatar .photo::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.1),
+        transparent
+      );
+      animation: shimmer 3s infinite;
+    }
+    .avatar .photo:hover{
+      transform: translateY(-12px) scale(1.1) rotate(2deg);
+      box-shadow: 
+        0 20px 60px rgba(0,209,255,0.6),
+        0 0 0 6px rgba(0,209,255,0.6),
+        inset 0 0 40px rgba(0,209,255,0.4);
+      animation: none;
+    }
+    .avatar .photo img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .avatar .photo:hover img{
+      transform: scale(1.2) rotate(-2deg);
+    }
+    
+    .avatar .info h1{
+      margin:8px 0 4px 0;
+      font-size:20px;
+      letter-spacing:0.2px;
+      animation: glow 3s ease-in-out infinite;
+    }
+    .avatar .info p{margin:6px 0 0;font-size:13px;color:var(--muted)}
+    .avatar .info .tagline{
+      margin-top:8px;
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    .stats{
+      display:flex;
+      gap:10px;
+      margin-top:18px;
+    }
+    .stat{
+      background: linear-gradient(135deg, rgba(124,77,255,0.1), rgba(0,209,255,0.05));
+      padding:12px;
+      border-radius:12px;
+      flex:1;
+      text-align:center;
+      border: 1px solid rgba(124,77,255,0.3);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      animation: fadeInSlideUp 0.6s ease-out both;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      transition: left 0.5s;
+    }
+    .stat:hover::before {
+      left: 100%;
+    }
+    .stat:nth-child(2) { animation-delay: 0.1s; }
+
+    .stat:hover{
+      background: linear-gradient(135deg, rgba(124,77,255,0.2), rgba(0,209,255,0.15));
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(0,209,255,0.3);
+      border-color: var(--accent-2);
+    }
+    .stat b{
+      display:block;
+      font-size:18px;
+      background: linear-gradient(90deg,var(--accent),var(--accent-2));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip: text;
+      font-weight: 700;
+    }
+    .stat span{display:block;font-size:12px;color:var(--muted);margin-top:6px}
+
+    .skills{
+      margin-top:18px;
+    }
+    .skills h3{margin:0 0 10px 0;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+    .chip{
+      display:inline-block;
+      padding:8px 12px;
+      background:linear-gradient(135deg, rgba(124,77,255,0.15), rgba(0,209,255,0.1));
+      border-radius:999px;
+      margin:6px 6px 0 0;
+      font-size:13px;
+      color:#dfe9f5;
+      border: 1px solid rgba(124,77,255,0.3);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      animation: chipIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+      position: relative;
+      overflow: hidden;
+    }
+    .chip::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.5s, height 0.5s;
+    }
+    .chip:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+    .skills .chip:nth-child(2) { animation-delay: 0.1s; }
+    .skills .chip:nth-child(3) { animation-delay: 0.2s; }
+    .skills .chip:nth-child(4) { animation-delay: 0.3s; }
+    .skills .chip:nth-child(5) { animation-delay: 0.4s; }
+    .skills .chip:nth-child(6) { animation-delay: 0.5s; }
+    .skills .chip:nth-child(7) { animation-delay: 0.6s; }
+    .skills .chip:nth-child(8) { animation-delay: 0.7s; }
+
+    .chip:hover{
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:#fff;
+      transform: translateY(-4px) scale(1.08);
+      box-shadow: 0 10px 25px rgba(124,77,255,0.6);
+      border-color: transparent;
+    }
+
+    .contact{
+      margin-top:18px;
+      border-radius:12px;
+      padding:12px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .contact a, .contact p{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      color:#d8e9fb;
+      text-decoration:none;
+      margin:8px 0;
+      font-size:14px;
+      padding: 8px;
+      border-radius: 8px;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+    }
+    .contact a::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border-radius: 8px;
+      transition: width 0.4s;
+      z-index: -1;
+    }
+    .contact a:hover::before {
+      width: 100%;
+    }
+    .contact a:hover{
+      color: #fff;
+      transform: translateX(12px);
+      padding-left: 16px;
+    }
+    .contact a svg{opacity:0.9; transition: transform 0.3s;}
+    .contact a:hover svg{transform: scale(1.2) rotate(5deg);}
+    .socials{margin-top:10px;display:flex;gap:10px}
+    .socials a.chip{
+      flex: 1;
+      text-align: center;
+      margin: 6px 0 0 0;
+    }
+
+    .main{
+      min-height:60vh;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .hero{
+      background: linear-gradient(135deg, rgba(124,77,255,0.1), rgba(0,209,255,0.05));
+      backdrop-filter: blur(10px);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow: 0 10px 40px rgba(2,6,23,0.8);
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      align-items:center;
+      border: 2px solid transparent;
+      animation: fadeInSlideUp 0.8s ease-out 0.2s both, borderFlow 10s linear infinite;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(124,77,255,0.1) 0%, transparent 70%);
+      animation: float 20s ease-in-out infinite;
+    }
+    .hero-left{
+      max-width:72%;
+      position: relative;
+      z-index: 1;
+    }
+    .hero h2{
+      margin:0 0 6px 0;
+      font-size:24px;
+      letter-spacing:0.2px;
+      background: linear-gradient(90deg,var(--accent),var(--accent-2), var(--accent-3));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip: text;
+    }
+    .hero p{margin:0;color:var(--muted);line-height: 1.6}
+    .cta{
+      display:flex;
+      gap:10px;
+      margin-top:14px;
+    }
+    .btn{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      padding:10px 16px;
+      border-radius:12px;
+      color:#fff;
+      font-weight:700;
+      border:none;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      box-shadow: 0 10px 30px rgba(124,77,255,0.3);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+    .btn:hover::before {
+      width: 400px;
+      height: 400px;
+    }
+    .btn:hover{
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 20px 45px rgba(124,77,255,0.5);
+    }
+    .btn.secondary{
+      background:transparent;
+      border:2px solid var(--accent);
+      color:#d8e9fb;
+      font-weight:600;
+    }
+    .btn.secondary:hover{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      border-color: transparent;
+      color: #fff;
+      box-shadow: 0 0 20px rgba(0,209,255,0.4);
+    }
+
+    .hero-right{
+      text-align:right;
+      min-width:170px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-right h3{margin:0;font-size:13px;color:var(--muted)}
+    .hero-right .big{
+      font-size:18px;
+      font-weight:700;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip: text;
+      animation: glow 4s ease-in-out infinite;
+    }
+
+    .card{
+      background: linear-gradient(135deg, rgba(15,23,32,0.95), rgba(15,23,32,0.85));
+      backdrop-filter: blur(10px);
+      border-radius:14px;
+      padding:18px;
+      box-shadow: 0 8px 25px rgba(3,8,20,0.8);
+      border: 1px solid rgba(124,77,255,0.2);
+      animation: fadeInSlideUp 0.8s ease-out 0.4s both;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(124,77,255,0.1), transparent);
+      transition: left 0.6s;
+    }
+    .card:hover::before {
+      left: 100%;
+    }
+    .card:hover {
+      border-color: var(--accent-2);
+      box-shadow: 0 12px 35px rgba(0,209,255,0.3);
+      transform: translateY(-4px);
+    }
+    .section:nth-of-type(2) .card { animation-delay: 0.5s; }
+    .section:nth-of-type(3) .card { animation-delay: 0.6s; }
+    .section:nth-of-type(4) .card { animation-delay: 0.7s; }
+    .section:nth-of-type(5) .card { animation-delay: 0.8s; }
+    .section:nth-of-type(6) .card { animation-delay: 0.9s; }
+
+    .section{
+      display:grid;
+      gap:12px;
+    }
+    .section h3{
+      margin:0 0 12px 0;
+      color:var(--muted);
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+
+    .timeline{
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+    .timeline .item{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      transition: all 0.3s ease;
+    }
+    .timeline .item:hover {
+      transform: translateX(8px);
+    }
+    .timeline .dot{
+      width:12px;
+      height:12px;
+      border-radius:6px;
+      background:var(--accent);
+      margin-top:6px;
+      flex:0 0 12px;
+      box-shadow: 0 0 15px rgba(124,77,255,0.6);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .timeline .item:hover .dot{
+        box-shadow: 0 0 25px rgba(0,209,255,0.9), 0 0 10px rgba(0,209,255,0.5);
+        transform: scale(1.4);
+        background: var(--accent-2);
+    }
+    .timeline .meta{font-size:13px;color:var(--muted);margin-top:4px}
+    .timeline b{display:block;color:#eaf3ff;font-size:15px}
+
+    .portfolio{
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+    .project{
+      padding:14px;
+      border-radius:12px;
+      background:linear-gradient(135deg, rgba(124,77,255,0.05), rgba(0,209,255,0.03));
+      min-height:110px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      border: 1px solid rgba(124,77,255,0.2);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .project::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(124,77,255,0.2) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+    .project:hover::before {
+      opacity: 1;
+      animation: float 3s ease-in-out infinite;
+    }
+    .project:hover{
+      transform:translateY(-15px) rotate(2deg) scale(1.05);
+      box-shadow: 0 20px 50px rgba(124,77,255,0.5);
+      border-color: var(--accent-2);
+      z-index: 10;
+    }
+    .project h4{
+      margin:0;
+      font-size:15px;
+      position: relative;
+      z-index: 1;
+    }
+    .project p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+      position: relative;
+      z-index: 1;
+    }
+
+    .goals-grid{
+      display: grid;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .goal-card{
+      background:linear-gradient(135deg, rgba(124,77,255,0.08), rgba(0,209,255,0.05));
+      padding:14px;
+      border-radius:12px;
+      border: 1px solid rgba(124,77,255,0.3);
+      transition: all 0.5s ease-out;
+      opacity: 0;
+      animation: goalCardIn 0.7s ease-out both;
+      position: relative;
+      overflow: hidden;
+    }
+    .goal-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -50%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1));
+      transform: skewX(-20deg);
+      transition: right 0.6s;
+    }
+    .goal-card:hover::after {
+      right: 150%;
+    }
+    .goal-card:nth-child(1) { animation-delay: 1.0s; }
+    .goal-card:nth-child(2) { animation-delay: 1.1s; }
+    .goal-card:nth-child(3) { animation-delay: 1.2s; }
+
+    .goal-card:hover{
+      transform: translateX(15px) scale(1.02);
+      border-color: var(--accent-2);
+      box-shadow: 0 10px 30px rgba(124,77,255,0.5);
+      background:linear-gradient(135deg, rgba(124,77,255,0.15), rgba(0,209,255,0.1));
+    }
+    .goal-card h4{
+      margin: 0 0 8px 0;
+      font-size: 15px;
+      color: #eaf3ff;
+    }
+    .goal-card p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .testimonial{
+      background:linear-gradient(90deg, rgba(124,77,255,0.1), rgba(0,209,255,0.05));
+      padding:14px;
+      border-left:4px solid var(--accent);
+      border-radius:8px;
+      margin-top:12px;
+      font-style:italic;
+      border: 1px solid rgba(124,77,255,0.3);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .testimonial:hover{
+        border-left-color: var(--accent-2);
+        border-left-width: 6px;
+        box-shadow: 0 8px 25px rgba(0,209,255,0.3);
+        transform: translateY(-4px) translateX(8px);
+        background:linear-gradient(90deg, rgba(124,77,255,0.15), rgba(0,209,255,0.1));
+    }
+    .testimonial p{
+      margin:0 0 10px 0;
+      color:var(--muted);
+      line-height:1.6;
+      font-size:14px;
+    }
+    .testimonial strong{
+      font-style:normal;
+      color:#eaf3ff;
+      font-size:13px;
+    }
+
+    form .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    input, textarea{
+      width:100%;
+      padding:10px 12px;
+      background:rgba(255,255,255,0.02);
+      border:1px solid rgba(124,77,255,0.3);
+      border-radius:10px;
+      color:inherit;
+      resize:vertical;
+      font-size:14px;
+      transition: all 0.3s ease;
+    }
+    input:focus, textarea:focus{
+      outline: none;
+      border-color: var(--accent-2);
+      background: rgba(0,209,255,0.05);
+      box-shadow: 0 0 0 3px rgba(0,209,255,0.2), 0 0 15px rgba(0,209,255,0.3);
+      transform: translateY(-2px);
+    }
+    textarea{min-height:120px}
+    .form-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+    .small-muted{font-size:13px;color:var(--muted)}
+
+    footer{
+      opacity:0.9;
+      color:var(--muted);
+      font-size:13px;
+      padding:40px 20px 20px 20px;
+      text-align:center;
+      width:100%;
+      margin-top:auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width:1000px){
+      .container{grid-template-columns:1fr; padding-bottom:40px}
+      .sidebar{position:relative;top:0}
+      .hero{flex-direction:column;text-align:center}
+      .hero-left{max-width:100%}
+      .hero-right{text-align:center}
+      .grid-2{grid-template-columns:1fr}
+    }
+
+    a:hover{opacity:0.95}
+    .btn:active{transform:translateY(1px)}
+
+    /* Scroll animations */
+    @keyframes slideInFromLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideInFromRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Additional glow effects */
+    .glow-text {
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    /* Rotating border effect */
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .rotating-border {
+      position: relative;
+    }
+
+    .rotating-border::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, var(--accent), var(--accent-2), var(--accent-3), var(--accent-4));
+      border-radius: inherit;
+      z-index: -1;
+      animation: rotate 4s linear infinite;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .rotating-border:hover::before {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <aside class="sidebar" aria-label="Wasifu Mifupi">
+      <div class="avatar">
+        <div class="photo">
+          <img src="seven_profile.jpg" alt="Seven Mgimba Profile Photo">
+        </div>
+        <div class="info">
+          <h1 class="glow-text">Seven Mgimba</h1>
+          <p>IT Student & Cybersecurity Enthusiast</p>
+          <div class="tagline">Catholic University of Mbeya (CUoM)<br>Information Technology with Cybersecurity</div>
+        </div>
+      </div>
+
+      <div class="stats" aria-hidden="true" style="margin-top:16px">
+        <div class="stat rotating-border"><b>20+</b><span>Projects</span></div>
+        <div class="stat rotating-border"><b>5+</b><span>Certifications</span></div>
+      </div>
+
+      <div class="skills">
+        <h3>Utaalamu</h3>
+        <span class="chip rotating-border">Cybersecurity</span>
+        <span class="chip rotating-border">Software Development</span>
+        <span class="chip rotating-border">Network Security</span>
+        <span class="chip rotating-border">Web Development</span>
+        <span class="chip rotating-border">Python & Django</span>
+        <span class="chip rotating-border">React & Node.js</span>
+        <span class="chip rotating-border">Database Design</span>
+      </div>
+
+      <div class="contact">
+        <h3 style="margin:0 0 8px 0;font-size:13px;color:var(--muted)">Mawasiliano</h3>
+        <a href="mailto:mgimbasamuel@gmail.com" title="Email">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5v-11z" stroke="currentColor" stroke-opacity="0.7" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 6.5l-9 6-9-6" stroke="currentColor" stroke-opacity="0.7" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          mgimbasamuel@gmail.com
+        </a>
+        <a href="tel:+255753512707" title="Phone">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12 1.05.37 2.07.73 3.03a2 2 0 0 1-.45 2.11L8.91 10.09a16 16 0 0 0 6 6l1.24-1.24a2 2 0 0 1 2.11-.45c.95.36 1.98.61 3.03.73A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-opacity="0.7" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          +255 753 512 707
+        </a>
+
+        <div class="socials" aria-hidden="true">
+          <a class="chip rotating-border" href="https://github.com/seven820" target="_blank" rel="noopener">GitHub</a>
+          <a class="chip rotating-border" href="https://www.facebook.com/seven.mgimba" target="_blank" rel="noopener">Facebook</a>
+          <a class="chip rotating-border" href="https://www.instagram.com/sevenmgimba" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;color:var(--muted);font-size:13px">
+        <strong style="background: linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Focus:</strong> Network Security • Software Innovation
+      </div>
+    </aside>
+
+    <main class="main">
+      <section class="hero card rotating-border" aria-label="Hero">
+        <div class="hero-left">
+          <h2>Karibu kwenye Portfolio Yangu</h2>
+          <p>Mimi ni Seven Mgimba, mwanafunzi wa chuo kikuu cha Catholic University of Mbeya (CUoM), ninasoma Information Technology with Cybersecurity. Ninajihusisha na maswala ya software development na cybersecurity. Lengo langu ni kuunda software kubwa itakayosaidia katika ulinzi wa kimitandao na teknolojia za kisasa.</p>
+          <div class="cta">
+            <a class="btn" href="#contact">Wasiliana Nami</a>
+            <a class="btn secondary" href="#portfolio">Tazama Miradi</a>
+          </div>
+        </div>
+        <div class="hero-right">
+          <h3>Mwelekeo Wangu</h3>
+          <div class="big">Network Security & Software Innovation</div>
+        </div>
+      </section>
+
+      <section class="card section rotating-border" aria-label="Elimu & Ujuzi">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+          <h3>Elimu & Ujuzi</h3>
+          <div class="small-muted">2024 — Hadi Sasa</div>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <h4 style="font-size:14px;color:var(--muted);margin:0 0 12px 0">Safari ya Elimu</h4>
+            <div class="timeline">
+              <div class="item">
+                <div class="dot" aria-hidden="true"></div>
+                <div>
+                  <b>Diploma in Information Technology</b>
+                  <div class="meta">Catholic University of Mbeya (CUoM) • 2024 - Inaendelea</div>
+                  <p style="color:var(--muted);font-size:13px;margin-top:6px">Specialization: Cybersecurity na Network Security. Ninajifunza kuhusu software development, database management, na modern security protocols.</p>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="dot" aria-hidden="true" style="background:var(--accent-2)"></div>
+                <div>
+                  <b>Software Development Projects</b>
+                  <div class="meta">Personal & Academic • 2023 - Hadi Sasa</div>
+                  <p style="color:var(--muted);font-size:13px;margin-top:6px">Kujenga web applications, security tools, na network monitoring systems kwa ajili ya masomo na miradi binafsi.</p>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="dot" aria-hidden="true" style="background:#6ee7b7"></div>
+                <div>
+                  <b>Cybersecurity Research</b>
+                  <div class="meta">Academic Research • 2024 - Hadi Sasa</div>
+                  <p style="color:var(--muted);font-size:13px;margin-top:6px">Kuchunguza threats za kisasa za cyber na kuunda solutions za ulinzi wa mitandao.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 style="font-size:14px;color:var(--muted);margin:0 0 12px 0">Maeneo ya Utaalamu</h4>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div class="card rotating-border" style="padding:12px">
+                <b>🔒 Cybersecurity</b>
+                <div class="meta" style="margin-top:6px">Network security, threat analysis, security protocols, ethical hacking basics, na vulnerability assessment.</div>
+              </div>
+
+              <div class="card rotating-border" style="padding:12px">
+                <b>💻 Software Development</b>
+                <div class="meta" style="margin-top:6px">Web development (HTML, CSS, JavaScript), Python programming, database design (MySQL, PostgreSQL), na modern frameworks.</div>
+              </div>
+
+              <div class="card rotating-border" style="padding:12px">
+                <b>🌐 Network Security</b>
+                <div class="meta" style="margin-top:6px">Network architecture, firewall configuration, intrusion detection systems (IDS), na secure network design.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio" class="card section rotating-border" aria-label="Portfolio">
+        <h3>Miradi Yangu</h3>
+        <p style="color:var(--muted);font-size:13px;margin-top:4px">Miradi niliyofanya wakati wa masomo na kwa ajili ya kuendeleza ujuzi wangu</p>
+        <div class="portfolio" style="margin-top:14px">
+          <article class="project rotating-border">
+            <h4>🔐 Secure Login System</h4>
+            <p>Multi-factor authentication system kwa web applications. Ina encryption ya kisasa na user session management yenye usalama.</p>
+          </article>
+
+          <article class="project rotating-border">
+            <h4>🛡️ Network Security Monitor</h4>
+            <p>Tool ya ku-monitor network traffic na ku-detect suspicious activities. Inatoa real-time alerts kwa security threats.</p>
+          </article>
+
+          <article class="project rotating-border">
+            <h4>💻 Student Management System</h4>
+            <p>Web-based system ya kusimamia taarifa za wanafunzi, grades, na attendance records. Built with Python Django.</p>
+          </article>
+
+          <article class="project rotating-border">
+            <h4>🔍 Vulnerability Scanner</h4>
+            <p>Python script ya ku-scan websites na systems kwa security vulnerabilities. Ina automated reporting features.</p>
+          </article>
+
+          <article class="project rotating-border">
+            <h4>📱 Personal Portfolio Website</h4>
+            <p>Responsive portfolio website yenye modern design na interactive features. Built kwa HTML, CSS, na JavaScript.</p>
+          </article>
+
+          <article class="project rotating-border">
+            <h4>🌐 Firewall Configuration Tool</h4>
+            <p>Tool ya kusaidia ku-configure firewall rules kwa Linux systems. Simplifies security setup kwa network administrators.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card section rotating-border" aria-label="Malengo">
+        <h3>Malengo Yangu</h3>
+        <div class="goals-grid">
+          <div class="goal-card rotating-border">
+            <h4>🎯 Malengo ya Karibu</h4>
+            <p>Kukamilisha shahada yangu kwa ufanisi, kupata certifications za Cybersecurity (CompTIA Security+, CEH), na kujenga portfolio kubwa ya miradi ya software development.</p>
+          </div>
+
+          <div class="goal-card rotating-border">
+            <h4>🚀 Malengo ya Muda Mrefu</h4>
+            <p>Kuunda software kubwa itakayosaidia katika ulinzi wa kimitandao na teknolojia za kisasa. Kuwa cybersecurity expert anayesaidiana na makampuni makubwa kusimamia usalama wa data zao na kujenga mitandao salama.</p>
+          </div>
+
+          <div class="goal-card rotating-border">
+            <h4>💡 Ndoto Yangu</h4>
+            <p>Kuanzisha kampuni ya teknolojia itakayotoa solutions za cybersecurity kwa wafanyabiashara na taasisi za umma Tanzania na Africa kwa ujumla. Kusaidia kuboresha usalama wa dijitali nchini.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card section rotating-border" aria-label="Testimonials">
+        <h3>Maoni ya Wenzangu</h3>
+        <blockquote class="testimonial">
+          <p>"Seven ni mwanafunzi mwenye bidii na uwezo mkubwa katika programming. Miradi yake ya cybersecurity inaonyesha uelewa mzuri wa security concepts na innovation."</p>
+          <strong>— France, Lecturer - CUoM IT Department</strong>
+        </blockquote>
+
+        <blockquote class="testimonial">
+          <p>"Nimefanya kazi na Seven kwenye project ya group na alikuwa na contribution kubwa. Ana ujuzi mzuri wa coding na pia anaweza kufundisha wengine kwa urahisi."</p>
+          <strong>— Agripina George, Mwanafunzi Mwenzake - CUoM</strong>
+        </blockquote>
+      </section>
+
+      <section id="contact" class="card section rotating-border" aria-label="Contact">
+        <h3>Wasiliana Nami</h3>
+        <p class="small-muted">Tuma meseji kwa kutumia fomu hapa chini au tuma email moja kwa moja: <strong style="color:var(--accent-2)">mgimbasamuel@gmail.com</strong></p>
+
+        <form id="contactForm" onsubmit="return handleSubmit(event)" novalidate>
+          <div class="row" style="margin-top:12px">
+            <input id="name" name="name" placeholder="Jina lako *" required />
+            <input id="email" name="email" type="email" placeholder="Email *" required />
+          </div>
+
+          <div style="margin-top:10px">
+            <input id="phone" name="phone" type="tel" placeholder="Nambari ya simu (optional)" />
+          </div>
+
+          <div style="margin-top:10px">
+            <input id="subject" name="subject" placeholder="Subject" />
+          </div>
+
+          <div style="margin-top:10px">
+            <textarea id="message" name="message" placeholder="Ujumbe wako *" required></textarea>
+          </div>
+
+          <div class="form-footer">
+            <div class="small-muted">Nitarejeshea ndani ya siku 1–2</div>
+            <button type="submit" class="btn">Tuma Meseji</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <footer style="width:100%;max-width:var(--max-w);margin:0 auto;text-align:center">
+    <p>&copy; 2024 Seven Mgimba. All rights reserved. | Built with passion for Cybersecurity & Software Development 🚀</p>
+  </footer>
+
+  <script>
+    // Contact Form Handler
+    function handleSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      if (!name || !email || !message) {
+        alert('Tafadhali jaza sehemu zote muhimu (*)');
+        return false;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Tafadhali weka email sahihi');
+        return false;
+      }
+
+      alert('Asante! Meseji yako imetumwa. Nitakujibu hivi karibuni! 😊');
+      form.reset();
+      return false;
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add scroll reveal animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all cards for scroll animations
+    document.querySelectorAll('.card, .project, .goal-card').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
+
